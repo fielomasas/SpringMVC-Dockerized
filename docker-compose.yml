@@ -37,12 +37,10 @@ services:
   
   # 3. JavaScript / HTML Frontend Service (Nginx)
   frontend_app:
-    image: nginx:alpine
+    build: ./spring_rest/src/main/resources/static
     container_name: web_frontend
     ports:
       - "80:80"
-    volumes:
-      - ./spring_rest/src/main/resources/static:/usr/share/nginx/html:ro
     depends_on:
       - backend_app
         
